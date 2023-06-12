@@ -1,4 +1,4 @@
-# Empowering Aecurity with Advances Runtime Intrusion detection 
+# Empowering Security with Advances Runtime Intrusion detection 
 
 
 ![alt text](image.jpg)
