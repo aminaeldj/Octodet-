@@ -40,7 +40,7 @@ Install using the apt repository
 Before you install Docker Engine for the first time on a new host machine, you need to set up the Docker repository. Afterward, you can install and update Docker from the repository.
 
 - Set up the repository
-1. Update the 'apt' package index and install packages to allow 'apt' to use a repository over HTTPS:
+1. Update the `apt` package index and install packages to allow `apt` to use a repository over HTTPS:
 
    ```shell
    sudo apt-get update
@@ -90,7 +90,7 @@ Kubernetes is an open-source platform that orchestrates and scales containerized
    /usr/local /bin/ kubectl
 ## Cilium Installation:
 [Cilium Documentation](https://docs.cilium.io/en/v1.13/gettingstarted/k8s-install-default/)
-Cilium is an open source project that uses eBPF to provide secure and observable connectivity for cloud native applications running on Kubernetes. Cilium can enforce network policies, monitor network flows, and perform service discovery and load balancing at the kernel level. To use eBPF-based tools for security analysis of container runtime, we need to install and configure Cilium on our machine:
+`Cilium` is an open source project that uses eBPF to provide secure and observable connectivity for cloud native applications running on Kubernetes. `Cilium` can enforce network policies, monitor network flows, and perform service discovery and load balancing at the kernel level. To use eBPF-based tools for security analysis of container runtime, we need to install and configure Cilium on our machine:
    
       
       CILIUM_CLI_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/cilium-cli/master/stable.txt)
@@ -106,10 +106,8 @@ Cilium is an open source project that uses eBPF to provide secure and observable
 
 ## Tetragon Installation
 Tetragon is an open-source project that uses eBPF to perform security observability and
-enforcement for a container runtime. Tetragon can filter and observe events and ap-
-ply policies in real time without sending events to an agent running outside the kernel.
-Tetragon can address numerous security and observability use cases such as syscall trac-
-ing, policy auditing, threat detection, forensics, and compliance. To install and configure
+enforcement for a container runtime. Tetragon can filter and observe events and apply policies in real time without sending events to an agent running outside the kernel.
+Tetragon can address numerous security and observability use cases such as syscall tracing, policy auditing, threat detection, forensics, and compliance. To install and configure
 Tetragon on our Linux system, we need to follow these steps:
 
 1. To install Tetragon, run the following commands:
@@ -117,7 +115,7 @@ Tetragon on our Linux system, we need to follow these steps:
    helm repo add cilium https :// helm. cilium .io
    helm repo update
    helm install tetragon cilium / tetragon -n kube - system
-2. A second way is to pretty print the events using the 'tetra CLI'. The tool also allows filtering by process, pod, and other fields.
+2. A second way is to pretty print the events using the `tetra CLI`. The tool also allows filtering by process, pod, and other fields.
    ```shell
    GOOS=$(go env GOOS)
    GOARCH=$(go env GOARCH)
@@ -142,11 +140,11 @@ install Elasticsearch following the next steps:
    wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor 
    -o /usr/share/keyrings/elasticsearch-keyring.gpg
 
-2. The 'apt-transport-https' package on Debian may need to be installed before proceeding:
+2. The `apt-transport-https` package on Debian may need to be installed before proceeding:
    ```shell
    sudo apt-get install apt-transport-https
 
-3. Saving the repository definition to '/etc/apt/sources.list.d/elastic-8.x.list':
+3. Saving the repository definition to `/etc/apt/sources.list.d/elastic-8.x.list`:
    ```shell
    echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] 
    https://artifacts.elastic.co/packages/8.x/apt       
@@ -170,13 +168,13 @@ sudo apt-get update && sudo apt-get install kibana
 
 ## Additional Tools:
 
-- Helm v3
+- `Helm v3`
 
 ```shell
 sudo snap install helm --classic
 ```
 
-- Go Language
+- `Go Language`
 
 ```shell
 sudo snap install go --classic
