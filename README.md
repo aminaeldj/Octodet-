@@ -2,17 +2,22 @@
 
 
 ![Image](https://i.ibb.co/tq4jfBZ/Untitled-design.png)  
-This Documentation provide the required tools installation guide for environment setup of Container Runtime Threat Detection Solution PFE 2023 Constantine 2 Universtiy X Octodet 
+This Documentation provides the required tools installation guide for environment setup of Container Runtime Threat Detection Solution PFE 2023 Constantine 2 Universtiy X Octodet 
 Project made By:
 
 - Soltane Mohcene
 - Amoura Mohamed Elhadi 
 
-Second Dgeree Software Engeenering Students at University of Constantine 2, NTIC Faculty, TLSI Departement.
+Second Degree Software Engineering Students at University of Constantine 2, NTIC Faculty, TLSI Departement.
 
 # Environment Setup
 
 To conduct a security analysis of container runtime using eBPF-based tools, we must first set up our environment and install the necessary tools on the Linux Ubuntu environment.
+
+## Ubuntu
+Ubuntu is a popular Linux distribution that is based on Debian and composed mostly of free and open-source software. It offers three editions: Desktop, Server, and Core for Internet of things devices and robots. Ubuntu is also a Nguni Bantu term that expresses the philosophy of “humanity” or “I am because we are”.
+
+To Download and Install Ubuntu 22.04 LTS, refer to this: [Download Ubuntu Desktop](https://ubuntu.com/download/desktop) 
 
 ## Linux Kernel with eBPF support
 
@@ -121,7 +126,6 @@ Tetragon on our Linux system, we need to follow these steps:
     ```shell
    helm repo add cilium https://helm.cilium.io
    helm repo update
-   helm install tetragon cilium/tetragon -n kube - system
 2. A second way is to pretty print the events using the `tetra CLI`. The tool also allows filtering by process, pod, and other fields.
    ```shell
    GOOS=$(go env GOOS)
