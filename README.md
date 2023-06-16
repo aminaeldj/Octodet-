@@ -1,4 +1,4 @@
-# Empowering Security with Advances Runtime Threat detection 
+# Empowering Security with Advanced Runtime Threat detection 
 
 
 ![Image](https://i.ibb.co/tq4jfBZ/Untitled-design.png)  
