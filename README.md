@@ -119,13 +119,51 @@ Tetragon on our Linux system, we need to follow these steps:
    ```shell
    GOOS=$(go env GOOS)
    GOARCH=$(go env GOARCH)
-   curl -L --remote-name-all             https://github.com/cilium/tetragon/releases/latest/download/tetra-${GOOS}-${GOARCH}.tar.gz{,.sha256sum}
+   curl -L --remote-name-all             
+   https://github.com/cilium/tetragon/releases/latest/download/tetra-${GOOS}-${GOARCH}.tar.gz{,.sha256sum}
    sha256sum --check tetra-${GOOS}-${GOARCH}.tar.gz.sha256sum
    sudo tar -C /usr/local/bin -xzvf tetra-${GOOS}-${GOARCH}.tar.gz
    rm tetra-${GOOS}-${GOARCH}.tar.gz{,.sha256sum}
 
 ## Elasticsearch and Kibana Installation
+Elasticsearch is a distributed engine for search and analytics of various data types. It
+works with Logstash and Beats to collect, aggregate, and enrich data before storing it in
+Elasticsearch. Kibana enables interactive exploration, visualization, and sharing of data
+insights and management and monitoring of the Elastic Stack. Elasticsearch performs the
+indexing, searching, and analyzing of data with near real-time efficiency. It can handle
+any data type, such as structured or unstructured text, numerical data, or geospatial data.
+It can also do complex aggregations to discover trends and patterns in data. And as data
+and query volume grow, Elasticsearch can scale up smoothly to accommodate it. we can
+install Elasticsearch following the next steps: 
+1. Download and install the public signing key:
+   ```shell
+   wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor 
+   -o /usr/share/keyrings/elasticsearch-keyring.gpg
 
+2. The 'apt-transport-https' package on Debian may need to be installed before proceeding:
+   ```shell
+   sudo apt-get install apt-transport-https
 
+3. Saving the repository definition to '/etc/apt/sources.list.d/elastic-8.x.list':
+   ```shell
+   echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] 
+   https://artifacts.elastic.co/packages/8.x/apt       
+   stable main" | sudo tee /etc/apt/sources.list.d/elastic-8.x.list
+
+4. The Elasticsearch Debian package can be installed with:
+   ```shell
+   sudo apt -get update && sudo apt -get install elasticsearch
+
+Kibana is the gateway to the Elastic Stack. With Kibana, the following can be done:
+Explore, observe, and secure the data. Whether discovering documents, analyzing
+logs, or finding security vulnerabilities, Kibana provides access to these features and
+more. Analyze the data. Hidden insights can be uncovered, visualized in charts, gauges,
+maps, graphs, and more, and combined in a dashboard. Manage, monitor, and secure
+the Elastic Stack. The data can be managed, the health of the Elastic Stack cluster can
+be monitored, and the access of different users to different features can be controlled. to
+install kibana, Kibana can be installed with:
+
+   ```shell
+   sudo apt -get update && sudo apt -get install kibana
 
 
