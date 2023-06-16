@@ -90,6 +90,7 @@ Kubernetes is an open-source platform that orchestrates and scales containerized
    /usr/local /bin/ kubectl
 ## Cilium Installation:
 [Cilium Documentation](https://docs.cilium.io/en/v1.13/gettingstarted/k8s-install-default/)
+
 `Cilium` is an open source project that uses eBPF to provide secure and observable connectivity for cloud native applications running on Kubernetes. `Cilium` can enforce network policies, monitor network flows, and perform service discovery and load balancing at the kernel level. To use eBPF-based tools for security analysis of container runtime, we need to install and configure Cilium on our machine:
    
       
@@ -102,7 +103,7 @@ Kubernetes is an open-source platform that orchestrates and scales containerized
       rm cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
 
 
-[Cilium Documentation](https://docs.cilium.io/en/v1.13/gettingstarted/k8s-install-default/)
+
 
 ## Tetragon Installation
 Tetragon is an open-source project that uses eBPF to perform security observability and
