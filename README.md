@@ -1,7 +1,8 @@
 # Empowering Security with Advances Runtime Intrusion detection 
 
 
-![alt text](image.jpg)
+![Image](https://i.ibb.co/ZT0qvXx/image.png)
+
 
 # Environment Setup
 
@@ -30,6 +31,8 @@ To set up a Linux kernel with eBPF support on Ubuntu 22.04 LTS, follow these ste
  to Check the kernel version and the eBPF features available on your system.
 
 ## Docker Engine Installation
+
+[Docker Engine Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html)
 
 Docker Engine is the software that runs and manages containers on a host machine. To use eBPF-based tools for security analysis of container runtime, we need to install and configure Docker Engine on our Linux system. Follow these steps to install and configure Docker Engine:
 
@@ -68,12 +71,10 @@ Before you install Docker Engine for the first time on a new host machine, you n
    sudo docker run hello-world
 
 ## Kubernetes Installation
-Kubernetes is an open-source platform that orchestrates and scales containerized appli-
-cations across multiple nodes. To use eBPF-based tools for security analysis of container
-runtime, we need to install and configure Kubernetes on our Linux system. In this case,
-we are using KIND, which is a tool that runs a local Kubernetes cluster using Docker
-containers as nodes. To install and configure Kubernetes with KIND, we need to follow
-these steps:
+
+[Kind Documentation](https://kind.sigs.k8s.io/docs/user/quick-start/)
+
+Kubernetes is an open-source platform that orchestrates and scales containerized applications across multiple nodes. To use eBPF-based tools for security analysis of container runtime, we need to install and configure Kubernetes on our Linux system. In this case, we are using KIND, which is a tool that runs a local Kubernetes cluster using Docker containers as nodes. To install and configure Kubernetes with KIND, we need to follow these steps:
 1. Kind install command:
    ```shell
    curl -Lo ./ kind
@@ -88,6 +89,7 @@ these steps:
    sudo install -o root -g root -m 0755 kubectl
    /usr/local /bin/ kubectl
 ## Cilium Installation:
+[Cilium Documentation](https://docs.cilium.io/en/v1.13/gettingstarted/k8s-install-default/)
 Cilium is an open source project that uses eBPF to provide secure and observable connectivity for cloud native applications running on Kubernetes. Cilium can enforce network policies, monitor network flows, and perform service discovery and load balancing at the kernel level. To use eBPF-based tools for security analysis of container runtime, we need to install and configure Cilium on our machine:
    
       
@@ -155,15 +157,30 @@ install Elasticsearch following the next steps:
    sudo apt -get update && sudo apt -get install elasticsearch
 
 Kibana is the gateway to the Elastic Stack. With Kibana, the following can be done:
-Explore, observe, and secure the data. Whether discovering documents, analyzing
-logs, or finding security vulnerabilities, Kibana provides access to these features and
-more. Analyze the data. Hidden insights can be uncovered, visualized in charts, gauges,
-maps, graphs, and more, and combined in a dashboard. Manage, monitor, and secure
-the Elastic Stack. The data can be managed, the health of the Elastic Stack cluster can
-be monitored, and the access of different users to different features can be controlled. to
-install kibana, Kibana can be installed with:
 
-   ```shell
-   sudo apt -get update && sudo apt -get install kibana
+- Explore, observe, and secure the data. Whether discovering documents, analyzing logs, or finding security vulnerabilities, Kibana provides access to these features and more.
+- Analyze the data. Hidden insights can be uncovered, visualized in charts, gauges, maps, graphs, and more, and combined in a dashboard.
+- Manage, monitor, and secure the Elastic Stack. The data can be managed, the health of the Elastic Stack cluster can be monitored, and access to different features can be controlled.
+
+To install Kibana, you can use the following command:
+
+```shell
+sudo apt-get update && sudo apt-get install kibana
+```
+
+## Additional Tools:
+
+- Helm v3
+
+```shell
+sudo snap install helm --classic
+```
+
+- Go Language
+
+```shell
+sudo snap install go --classic
+```
+
 
 
