@@ -1,8 +1,7 @@
 # Empowering Security with Advances Runtime Intrusion detection 
 
 
-![Image](https://i.ibb.co/ZT0qvXx/image.png)  ![Image](https://www.univ-constantine2.dz/wp-content/uploads/icon-uamc2.jpg) ![Image](https://www.univ-constantine2.dz/facntic/wp-content/uploads/2022/01/Logo-NTIC-zizette-boufaida-1.png) ![Image](https://www.univ-constantine2.dz/facntic/wp-content/uploads/2023/04/tlsi.jpeg) 
-
+![Image](https://ibb.co/R39rn2h)  
 This Documentation provide the required tools installation guide for environment setup of Container Runtime Threat Detection Solution PFE 2023 Constantine 2 Universtiy X Octodet 
 Project made By:
 
@@ -86,17 +85,15 @@ Before you install Docker Engine for the first time on a new host machine, you n
 Kubernetes is an open-source platform that orchestrates and scales containerized applications across multiple nodes. To use eBPF-based tools for security analysis of container runtime, we need to install and configure Kubernetes on our Linux system. In this case, we are using KIND, which is a tool that runs a local Kubernetes cluster using Docker containers as nodes. To install and configure Kubernetes with KIND, we need to follow these steps:
 1. Kind install command:
    ```shell
-   curl -Lo ./ kind
-   https :// kind.sigs.k8s.io/dl/v0 .18.0/ kind -linux - amd64
-   chmod +x ./ kind
-   sudo mv ./ kind /usr/ local /bin/kind
+   curl -Lo ./kind
+   https://kind.sigs.k8s.io/dl/v0.18.0/kind -linux - amd64
+   chmod +x ./kind
+   sudo mv ./kind/usr/local/bin/kind
 2. Install kubectl binary using these commands:
    ```shell
-   curl -LO " https :// dl.k8s.io/ release /$(curl -L -s
-   https :// dl.k8s.io/ release / stable .txt)/bin/ linux /
-   amd64 / kubectl "
-   sudo install -o root -g root -m 0755 kubectl
-   /usr/local /bin/ kubectl
+   curl -LO " https://dl.k8s.io/release/$(curl -L -s
+   https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl "
+   sudo install -o root -g root -m 0755 kubectl/usr/local/bin/kubectl
 ## Cilium Installation:
 [Cilium Documentation](https://docs.cilium.io/en/v1.13/gettingstarted/k8s-install-default/)
 
@@ -122,9 +119,9 @@ Tetragon on our Linux system, we need to follow these steps:
 
 1. To install Tetragon, run the following commands:
     ```shell
-   helm repo add cilium https :// helm. cilium .io
+   helm repo add cilium https://helm.cilium.io
    helm repo update
-   helm install tetragon cilium / tetragon -n kube - system
+   helm install tetragon cilium/tetragon -n kube - system
 2. A second way is to pretty print the events using the `tetra CLI`. The tool also allows filtering by process, pod, and other fields.
    ```shell
    GOOS=$(go env GOOS)
