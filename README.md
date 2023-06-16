@@ -13,6 +13,8 @@ Second Dgeree Software Engeenering Students at University of Constantine 2, NTIC
 
 # Environment Setup
 
+To conduct a security analysis of container runtime using eBPF-based tools, we must first set up our environment and install the necessary tools on the Linux Ubuntu environment.
+
 ## Linux Kernel with eBPF support
 
 eBPF is a technology that enables users to insert custom programs into the Linux kernel dynamically and access and modify various kernel features. We need a Linux kernel that supports eBPF to use eBPF-based tools for security analysis of container runtime. The earliest kernel version that supports eBPF is 4.16. However, eBPF programs may benefit from more features and stability in newer kernel versions. 
