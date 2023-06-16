@@ -22,10 +22,11 @@ To set up a Linux kernel with eBPF support on Ubuntu 22.04 LTS, follow these ste
      ```shell
       sudo apt install linux-tools-generic-hwe-22.04
 3. Reboot the system and verify that the new kernel is running with eBPF support. You can use the following commands:
-   Check the kernel version:
+   
     ```shell
     uname -r
-Check the eBPF features available on your system:
-     ```shell
-     bpftool feature
+    bpftool feature
+    
+ to Check the kernel version and the eBPF features available on your system.
+   
 
