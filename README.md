@@ -1,4 +1,4 @@
-# Empowering Security with Advanced Runtime Threat detection 
+# ESCARDE: Empowering Security of Containers with Advanced Runtime Detection 
 
 
 ![Image](https://i.ibb.co/tq4jfBZ/Untitled-design.png)  
