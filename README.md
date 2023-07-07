@@ -130,103 +130,214 @@ Kubernetes is an open-source platform that orchestrates and scales containerized
 
 <details>
 
-<summary>Tips for collapsed sections</summary>
+<summary>Cilium Installation</summary>
 
-### You can add a header
+[Cilium Documentation](https://docs.cilium.io/en/v1.13/gettingstarted/k8s-install-default/)
 
-You can add text within a collapsed section. 
+`Cilium` is an open source project that uses eBPF to provide secure and observable connectivity for cloud native applications running on Kubernetes. `Cilium` can enforce network policies, monitor network flows, and perform service discovery and load balancing at the kernel level. To use eBPF-based tools for security analysis of container runtime, we need to install and configure Cilium on our machine:
+   
+      
+      CILIUM_CLI_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/cilium-cli/master/stable.txt)
+      CLI_ARCH=amd64
+      if [ "$(uname -m)" = "aarch64" ]; then CLI_ARCH=arm64; fi
+      curl -L --fail --remote-name-all https://github.com/cilium/cilium-cli/releases/download/${CILIUM_CLI_VERSION}/cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
+      sha256sum --check cilium-linux-${CLI_ARCH}.tar.gz.sha256sum
+      sudo tar xzvfC cilium-linux-${CLI_ARCH}.tar.gz /usr/local/bin
+      rm cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
+</details>
 
-You can add an image or a code block, too.
+<details>
 
-```ruby
-   puts "Hello World"
+<summary>Tetragon Installation</summary>
+
+Tetragon is an open-source project that uses eBPF to perform security observability and
+enforcement for a container runtime. Tetragon can filter and observe events and apply policies in real time without sending events to an agent running outside the kernel.
+Tetragon can address numerous security and observability use cases such as syscall tracing, policy auditing, threat detection, forensics, and compliance. To install and configure
+Tetragon on our Linux system, we need to follow these steps:
+
+1. To install Tetragon, run the following commands:
+    ```shell
+   helm repo add cilium https://helm.cilium.io
+   helm repo update
+2. A second way is to pretty print the events using the `tetra CLI`. The tool also allows filtering by process, pod, and other fields.
+   ```shell
+   GOOS=$(go env GOOS)
+   GOARCH=$(go env GOARCH)
+   curl -L --remote-name-all             
+   https://github.com/cilium/tetragon/releases/latest/download/tetra-${GOOS}-${GOARCH}.tar.gz{,.sha256sum}
+   sha256sum --check tetra-${GOOS}-${GOARCH}.tar.gz.sha256sum
+   sudo tar -C /usr/local/bin -xzvf tetra-${GOOS}-${GOARCH}.tar.gz
+   rm tetra-${GOOS}-${GOARCH}.tar.gz{,.sha256sum}
+
+</details>
+
+<details>
+
+<summary>Elasticsearch and Kibana Installation</summary>
+
+
+Elasticsearch is a distributed engine for search and analytics of various data types. It
+works with Logstash and Beats to collect, aggregate, and enrich data before storing it in
+Elasticsearch. Kibana enables interactive exploration, visualization, and sharing of data
+insights and management and monitoring of the Elastic Stack. Elasticsearch performs the
+indexing, searching, and analyzing of data with near real-time efficiency. It can handle
+any data type, such as structured or unstructured text, numerical data, or geospatial data.
+It can also do complex aggregations to discover trends and patterns in data. And as data
+and query volume grow, Elasticsearch can scale up smoothly to accommodate it. we can
+install Elasticsearch following the next steps: 
+1. Download and install the public signing key:
+   ```shell
+   wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor 
+   -o /usr/share/keyrings/elasticsearch-keyring.gpg
+
+2. The `apt-transport-https` package on Debian may need to be installed before proceeding:
+   ```shell
+   sudo apt-get install apt-transport-https
+
+3. Saving the repository definition to `/etc/apt/sources.list.d/elastic-8.x.list`:
+   ```shell
+   echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] 
+   https://artifacts.elastic.co/packages/8.x/apt       
+   stable main" | sudo tee /etc/apt/sources.list.d/elastic-8.x.list
+
+4. The Elasticsearch Debian package can be installed with:
+   ```shell
+   sudo apt -get update && sudo apt -get install elasticsearch
+
+Kibana is the gateway to the Elastic Stack. With Kibana, the following can be done:
+
+- Explore, observe, and secure the data. Whether discovering documents, analyzing logs, or finding security vulnerabilities, Kibana provides access to these features and more.
+- Analyze the data. Hidden insights can be uncovered, visualized in charts, gauges, maps, graphs, and more, and combined in a dashboard.
+- Manage, monitor, and secure the Elastic Stack. The data can be managed, the health of the Elastic Stack cluster can be monitored, and access to different features can be controlled.
+
+To install Kibana, you can use the following command:
+
+```shell
+sudo apt-get update && sudo apt-get install kibana
 ```
-
 </details><details>
 
-<summary>Tips for collapsed sections</summary>
+<summary>Additional Tools</summary>
 
-### You can add a header
+- `Helm v3`
 
-You can add text within a collapsed section. 
-
-You can add an image or a code block, too.
-
-```ruby
-   puts "Hello World"
+```shell
+sudo snap install helm --classic
 ```
 
-</details><details>
+- `Go Language`
 
-<summary>Tips for collapsed sections</summary>
-
-### You can add a header
-
-You can add text within a collapsed section. 
-
-You can add an image or a code block, too.
-
-```ruby
-   puts "Hello World"
+```shell
+sudo snap install go --classic
 ```
 
-</details><details>
+</details>
 
-<summary>Tips for collapsed sections</summary>
 
-### You can add a header
+# Kubernetes GOAT Deployment
+The Kubernetes Goat is designed to be an intentionally vulnerable cluster environment to learn and practice Kubernetes security
+[Kubernetes Gpat](https://github.com/madhuakula/kubernetes-goat). also, Refer to https://madhuakula.com/kubernetes-goat for the guide
 
-You can add text within a collapsed section. 
+<details>
 
-You can add an image or a code block, too.
+<summary>Cluster Creation</summary>
 
-```ruby
-   puts "Hello World"
+first of all, we create a KIND cluster with cilium CNI:
+
+```shell
+kind create cluster --config=kind-config.yaml
+```
+</details>
+
+<details>
+
+<summary>Cilium Installation</summary>
+
+Install Cilium:
+```shell
+cilium install
 ```
 
-</details><details>
+</details>
 
-<summary>Tips for collapsed sections</summary>
 
-### You can add a header
+<details>
 
-You can add text within a collapsed section. 
+<summary>Kubernetes Goat Deployment</summary>
 
-You can add an image or a code block, too.
+To set up the Kubernetes Goat resources in your cluster, run the following commands:
+```shell
+git clone https://github.com/madhuakula/kubernetes-goat.git
+cd kubernetes-goat
+chmod +x setup-kubernetes-goat.sh
+bash setup-kubernetes-goat.sh
+```
+Ensure the pods are running before running the access script
+```shell
+kubectl get pods
+```
+Access Kubernetes Goat by exposing the resources to the local system (port-forward) by the following command:
+```shell
+bash access-kubernetes-goat.sh
+```
+</details>
 
-```ruby
-   puts "Hello World"
+# Data Collection
+
+Rolling out Tetragon
+```shell
+helm install tetragon cilium/tetragon -n kube-system
+kubectl rollout status -n kube-system ds/tetragon -w
+```
+To begin with, we need to activate the feature that allows us to monitor the modifications of capability and namespace through the configmap. This can be done by changing
+the values of `enable-process-cred` and `enable-process-ns` from false to true, running the
+following command will open the configmap in a terminal editor:
+```shell
+kubectl edit cm -n kube -system tetragon -config
+# change "enable-process-cred" from "false" to "true"
+# change "enable-process-ns" from "false" to "true"
+# then hit :wq
 ```
 
-</details><details>
-
-<summary>Tips for collapsed sections</summary>
-
-### You can add a header
-
-You can add text within a collapsed section. 
-
-You can add an image or a code block, too.
-
-```ruby
-   puts "Hello World"
+Enable File Access tracingPolicy:
+```shell
+kubectl apply -f https://raw.githubusercontent.com/cilium/tetragon/main/examples/tracingpolicy/sys_write_follow_fd_prefix.yaml
+```
+Enable Network Observability TracingPolicy:
+```shell
+kubectl apply -f https://raw.githubusercontent.com/cilium/tetragon/main/examples/tracingpolicy/tcp-connect.yaml
 ```
 
-</details><details>
 
-<summary>Tips for collapsed sections</summary>
+## Explore Cluster Files
+To locate the stored logs from Tetragon, we need to access the cluster files. For that, we
+have to find the Docker container that hosts this cluster.
 
-### You can add a header
-
-You can add text within a collapsed section. 
-
-You can add an image or a code block, too.
-
-```ruby
-   puts "Hello World"
+This command will let us see the existing containers in Docker by the Container ID
+and Container Name:
+```shell
+docker ps
 ```
+We access the cluster node and explore the Tetragon pod for the logs files.
+```shell
+# this will let us access the cluster node
+docker exec -it kind-control-plane /bin/bash
+# this allow us to get on the pods directory 
+cd var/log/pods
+# this will show directories and files under pods directory 
+ls
+```
+To get the full path to the log files, use the `pwd` command.
+```shell
+cd export-stdout
+#then
+pwd
+```
+## Elastic-Agent and Fleet server configuration
 
-</details><details>
+
+
+<details>
 
 <summary>Tips for collapsed sections</summary>
 
@@ -433,180 +544,7 @@ You can add an image or a code block, too.
 
 
 
-## Cilium Installation:
-[Cilium Documentation](https://docs.cilium.io/en/v1.13/gettingstarted/k8s-install-default/)
 
-`Cilium` is an open source project that uses eBPF to provide secure and observable connectivity for cloud native applications running on Kubernetes. `Cilium` can enforce network policies, monitor network flows, and perform service discovery and load balancing at the kernel level. To use eBPF-based tools for security analysis of container runtime, we need to install and configure Cilium on our machine:
-   
-      
-      CILIUM_CLI_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/cilium-cli/master/stable.txt)
-      CLI_ARCH=amd64
-      if [ "$(uname -m)" = "aarch64" ]; then CLI_ARCH=arm64; fi
-      curl -L --fail --remote-name-all https://github.com/cilium/cilium-cli/releases/download/${CILIUM_CLI_VERSION}/cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
-      sha256sum --check cilium-linux-${CLI_ARCH}.tar.gz.sha256sum
-      sudo tar xzvfC cilium-linux-${CLI_ARCH}.tar.gz /usr/local/bin
-      rm cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
-
-
-
-
-## Tetragon Installation
-Tetragon is an open-source project that uses eBPF to perform security observability and
-enforcement for a container runtime. Tetragon can filter and observe events and apply policies in real time without sending events to an agent running outside the kernel.
-Tetragon can address numerous security and observability use cases such as syscall tracing, policy auditing, threat detection, forensics, and compliance. To install and configure
-Tetragon on our Linux system, we need to follow these steps:
-
-1. To install Tetragon, run the following commands:
-    ```shell
-   helm repo add cilium https://helm.cilium.io
-   helm repo update
-2. A second way is to pretty print the events using the `tetra CLI`. The tool also allows filtering by process, pod, and other fields.
-   ```shell
-   GOOS=$(go env GOOS)
-   GOARCH=$(go env GOARCH)
-   curl -L --remote-name-all             
-   https://github.com/cilium/tetragon/releases/latest/download/tetra-${GOOS}-${GOARCH}.tar.gz{,.sha256sum}
-   sha256sum --check tetra-${GOOS}-${GOARCH}.tar.gz.sha256sum
-   sudo tar -C /usr/local/bin -xzvf tetra-${GOOS}-${GOARCH}.tar.gz
-   rm tetra-${GOOS}-${GOARCH}.tar.gz{,.sha256sum}
-
-## Elasticsearch and Kibana Installation
-Elasticsearch is a distributed engine for search and analytics of various data types. It
-works with Logstash and Beats to collect, aggregate, and enrich data before storing it in
-Elasticsearch. Kibana enables interactive exploration, visualization, and sharing of data
-insights and management and monitoring of the Elastic Stack. Elasticsearch performs the
-indexing, searching, and analyzing of data with near real-time efficiency. It can handle
-any data type, such as structured or unstructured text, numerical data, or geospatial data.
-It can also do complex aggregations to discover trends and patterns in data. And as data
-and query volume grow, Elasticsearch can scale up smoothly to accommodate it. we can
-install Elasticsearch following the next steps: 
-1. Download and install the public signing key:
-   ```shell
-   wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor 
-   -o /usr/share/keyrings/elasticsearch-keyring.gpg
-
-2. The `apt-transport-https` package on Debian may need to be installed before proceeding:
-   ```shell
-   sudo apt-get install apt-transport-https
-
-3. Saving the repository definition to `/etc/apt/sources.list.d/elastic-8.x.list`:
-   ```shell
-   echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] 
-   https://artifacts.elastic.co/packages/8.x/apt       
-   stable main" | sudo tee /etc/apt/sources.list.d/elastic-8.x.list
-
-4. The Elasticsearch Debian package can be installed with:
-   ```shell
-   sudo apt -get update && sudo apt -get install elasticsearch
-
-Kibana is the gateway to the Elastic Stack. With Kibana, the following can be done:
-
-- Explore, observe, and secure the data. Whether discovering documents, analyzing logs, or finding security vulnerabilities, Kibana provides access to these features and more.
-- Analyze the data. Hidden insights can be uncovered, visualized in charts, gauges, maps, graphs, and more, and combined in a dashboard.
-- Manage, monitor, and secure the Elastic Stack. The data can be managed, the health of the Elastic Stack cluster can be monitored, and access to different features can be controlled.
-
-To install Kibana, you can use the following command:
-
-```shell
-sudo apt-get update && sudo apt-get install kibana
-```
-
-## Additional Tools:
-
-- `Helm v3`
-
-```shell
-sudo snap install helm --classic
-```
-
-- `Go Language`
-
-```shell
-sudo snap install go --classic
-```
-
-# Kubernetes GOAT Deployment
-The Kubernetes Goat is designed to be an intentionally vulnerable cluster environment to learn and practice Kubernetes security
-[Kubernetes Gpat](https://github.com/madhuakula/kubernetes-goat). also, Refer to https://madhuakula.com/kubernetes-goat for the guide
-
-first of all, we create a KIND cluster with cilium CNI:
-
-```shell
-kind create cluster --config=kind-config.yaml
-```
-Install Cilium:
-```shell
-cilium install
-```
-
-To set up the Kubernetes Goat resources in your cluster, run the following commands:
-```shell
-git clone https://github.com/madhuakula/kubernetes-goat.git
-cd kubernetes-goat
-chmod +x setup-kubernetes-goat.sh
-bash setup-kubernetes-goat.sh
-```
-Ensure the pods are running before running the access script
-```shell
-kubectl get pods
-```
-Access Kubernetes Goat by exposing the resources to the local system (port-forward) by the following command:
-```shell
-bash access-kubernetes-goat.sh
-```
-
-# Data Collection
-
-Rolling out Tetragon
-```shell
-helm install tetragon cilium/tetragon -n kube-system
-kubectl rollout status -n kube-system ds/tetragon -w
-```
-To begin with, we need to activate the feature that allows us to monitor the modifications of capability and namespace through the configmap. This can be done by changing
-the values of `enable-process-cred` and `enable-process-ns` from false to true, running the
-following command will open the configmap in a terminal editor:
-```shell
-kubectl edit cm -n kube -system tetragon -config
-# change "enable-process-cred" from "false" to "true"
-# change "enable-process-ns" from "false" to "true"
-# then hit :wq
-```
-
-Enable File Access tracingPolicy:
-```shell
-kubectl apply -f https://raw.githubusercontent.com/cilium/tetragon/main/examples/tracingpolicy/sys_write_follow_fd_prefix.yaml
-```
-Enable Network Observability TracingPolicy:
-```shell
-kubectl apply -f https://raw.githubusercontent.com/cilium/tetragon/main/examples/tracingpolicy/tcp-connect.yaml
-```
-
-
-## Explore Cluster Files
-To locate the stored logs from Tetragon, we need to access the cluster files. For that, we
-have to find the Docker container that hosts this cluster.
-
-This command will let us see the existing containers in Docker by the Container ID
-and Container Name:
-```shell
-docker ps
-```
-We access the cluster node and explore the Tetragon pod for the logs files.
-```shell
-# this will let us access the cluster node
-docker exec -it kind-control-plane /bin/bash
-# this allow us to get on the pods directory 
-cd var/log/pods
-# this will show directories and files under pods directory 
-ls
-```
-To get the full path to the log files, use the `pwd` command.
-```shell
-cd export-stdout
-#then
-pwd
-```
-## Elastic-Agent and Fleet server configuration
 
 
 
