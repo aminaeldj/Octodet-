@@ -196,5 +196,32 @@ sudo snap install helm --classic
 sudo snap install go --classic
 ```
 
+# Kubernetes GOAT Deployment
+The Kubernetes Goat is designed to be an intentionally vulnerable cluster environment to learn and practice Kubernetes security
+[Kubernetes Gpat](https://github.com/madhuakula/kubernetes-goat). also, Refer to https://madhuakula.com/kubernetes-goat for the guide
+
+first of all, we create a KIND cluster with cilium CNI:
+```shell
+kind create cluster --config=kind -config.yaml
+```
+
+To set up the Kubernetes Goat resources in your cluster, run the following commands:
+```shell
+git clone https://github.com/madhuakula/kubernetes-goat.git
+cd kubernetes-goat
+chmod +x setup-kubernetes-goat.sh
+bash setup-kubernetes-goat.sh
+```
+Ensure the pods are running before running the access script
+```shell
+kubectl get pods
+```
+Access Kubernetes Goat by exposing the resources to the local system (port-forward) by the following command:
+```shell
+bash access-kubernetes-goat.sh
+```
+
+
+
 
 
