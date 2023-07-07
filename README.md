@@ -19,12 +19,22 @@ Second Degree Software Engineering Students at University of Constantine 2, NTIC
 
 To conduct a security analysis of container runtime using eBPF-based tools, we must first set up our environment and install the necessary tools on the Linux Ubuntu environment.
 
-## Ubuntu
+<details>
+
+<summary>Ubuntu</summary>
+
+
 Ubuntu is a popular Linux distribution that is based on Debian and composed mostly of free and open-source software. It offers three editions: Desktop, Server, and Core for Internet of things devices and robots. Ubuntu is also a Nguni Bantu term that expresses the philosophy of “humanity” or “I am because we are”.
 
 To Download and Install Ubuntu 22.04 LTS, refer to this: [Download Ubuntu Desktop](https://ubuntu.com/download/desktop) 
 
-## Linux Kernel with eBPF support
+</details>
+
+<details>
+
+<summary>Linux Kernel with eBPF support</summary>
+
+
 
 eBPF is a technology that enables users to insert custom programs into the Linux kernel dynamically and access and modify various kernel features. We need a Linux kernel that supports eBPF to use eBPF-based tools for security analysis of container runtime. The earliest kernel version that supports eBPF is 4.16. However, eBPF programs may benefit from more features and stability in newer kernel versions. 
 
@@ -47,8 +57,13 @@ To set up a Linux kernel with eBPF support on Ubuntu 22.04 LTS, follow these ste
     bpftool feature
     
  to Check the kernel version and the eBPF features available on your system.
+</details>
 
-## Docker Engine Installation
+<details>
+
+<summary>Docker Engine Installation</summary>
+
+
 
 [Docker Engine Documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html)
 
@@ -88,7 +103,13 @@ Before you install Docker Engine for the first time on a new host machine, you n
    ```shell
    sudo docker run hello-world
 
-## Kubernetes Installation
+</details>
+
+<details>
+
+<summary>Kubernetes Installation</summary>
+
+
 
 [Kind Documentation](https://kind.sigs.k8s.io/docs/user/quick-start/)
 
@@ -104,6 +125,314 @@ Kubernetes is an open-source platform that orchestrates and scales containerized
    curl -LO " https://dl.k8s.io/release/$(curl -L -s
    https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl "
    sudo install -o root -g root -m 0755 kubectl/usr/local/bin/kubectl
+
+</details>
+
+<details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details><details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details>
+
+
+
+
+
+
+
+
+
+
 ## Cilium Installation:
 [Cilium Documentation](https://docs.cilium.io/en/v1.13/gettingstarted/k8s-install-default/)
 
