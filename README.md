@@ -201,8 +201,13 @@ The Kubernetes Goat is designed to be an intentionally vulnerable cluster enviro
 [Kubernetes Gpat](https://github.com/madhuakula/kubernetes-goat). also, Refer to https://madhuakula.com/kubernetes-goat for the guide
 
 first of all, we create a KIND cluster with cilium CNI:
+
 ```shell
-kind create cluster --config=kind -config.yaml
+kind create cluster --config=kind-config.yaml
+```
+Install Cilium:
+```shell
+cilium install
 ```
 
 To set up the Kubernetes Goat resources in your cluster, run the following commands:
@@ -221,7 +226,58 @@ Access Kubernetes Goat by exposing the resources to the local system (port-forwa
 bash access-kubernetes-goat.sh
 ```
 
+# Data Collection
 
+Rolling out Tetragon
+```shell
+helm install tetragon cilium/tetragon -n kube-system
+kubectl rollout status -n kube-system ds/tetragon -w
+```
+To begin with, we need to activate the feature that allows us to monitor the modifications of capability and namespace through the configmap. This can be done by changing
+the values of `enable-process-cred` and `enable-process-ns` from false to true, running the
+following command will open the configmap in a terminal editor:
+```shell
+kubectl edit cm -n kube -system tetragon -config
+# change "enable-process-cred" from "false" to "true"
+# change "enable-process-ns" from "false" to "true"
+# then hit :wq
+```
+
+Enable File Access tracingPolicy:
+```shell
+kubectl apply -f https://raw.githubusercontent.com/cilium/tetragon/main/examples/tracingpolicy/sys_write_follow_fd_prefix.yaml
+```
+Enable Network Observability TracingPolicy:
+```shell
+kubectl apply -f https://raw.githubusercontent.com/cilium/tetragon/main/examples/tracingpolicy/tcp-connect.yaml
+```
+
+
+## Explore Cluster Files
+To locate the stored logs from Tetragon, we need to access the cluster files. For that, we
+have to find the Docker container that hosts this cluster.
+
+This command will let us see the existing containers in Docker by the Container ID
+and Container Name:
+```shell
+docker ps
+```
+We access the cluster node and explore the Tetragon pod for the logs files.
+```shell
+# this will let us access the cluster node
+docker exec -it kind-control-plane /bin/bash
+# this allow us to get on the pods directory 
+cd var/log/pods
+# this will show directories and files under pods directory 
+ls
+```
+To get the full path to the log files, use the `pwd` command.
+```shell
+cd export -stdout
+#then
+pwd
+```
+## Elastic-Agent and Fleet server configuration
 
 
 
