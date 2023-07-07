@@ -273,7 +273,7 @@ ls
 ```
 To get the full path to the log files, use the `pwd` command.
 ```shell
-cd export -stdout
+cd export-stdout
 #then
 pwd
 ```
