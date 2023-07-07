@@ -235,8 +235,14 @@ sudo snap install go --classic
 
 
 # Kubernetes GOAT Deployment
+
+[Kubernetes Gpat](https://github.com/madhuakula/kubernetes-goat). 
+
+
 The Kubernetes Goat is designed to be an intentionally vulnerable cluster environment to learn and practice Kubernetes security
-[Kubernetes Gpat](https://github.com/madhuakula/kubernetes-goat). also, Refer to https://madhuakula.com/kubernetes-goat for the guide
+
+
+Also, Refer to https://madhuakula.com/kubernetes-goat for the guide
 
 <details>
 
@@ -284,6 +290,10 @@ bash access-kubernetes-goat.sh
 
 # Data Collection
 
+<details>
+
+<summary>Tetragon</summary>
+
 Rolling out Tetragon
 ```shell
 helm install tetragon cilium/tetragon -n kube-system
@@ -309,7 +319,13 @@ kubectl apply -f https://raw.githubusercontent.com/cilium/tetragon/main/examples
 ```
 
 
-## Explore Cluster Files
+</details>
+
+
+<details>
+
+<summary>Tetragon Logs path</summary>
+
 To locate the stored logs from Tetragon, we need to access the cluster files. For that, we
 have to find the Docker container that hosts this cluster.
 
@@ -333,51 +349,11 @@ cd export-stdout
 #then
 pwd
 ```
-## Elastic-Agent and Fleet server configuration
-
-
+</details>
 
 <details>
 
-<summary>Tips for collapsed sections</summary>
-
-### You can add a header
-
-You can add text within a collapsed section. 
-
-You can add an image or a code block, too.
-
-```ruby
-   puts "Hello World"
-```
-
-</details><details>
-
-<summary>Tips for collapsed sections</summary>
-
-### You can add a header
-
-You can add text within a collapsed section. 
-
-You can add an image or a code block, too.
-
-```ruby
-   puts "Hello World"
-```
-
-</details><details>
-
-<summary>Tips for collapsed sections</summary>
-
-### You can add a header
-
-You can add text within a collapsed section. 
-
-You can add an image or a code block, too.
-
-```ruby
-   puts "Hello World"
-```
+<summary>Elastic-Agent and Fleet server configuration</summary>
 
 </details><details>
 
