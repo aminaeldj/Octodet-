@@ -355,21 +355,25 @@ pwd
 
 <summary>Elastic-Agent and Fleet server configuration</summary>
 
-</details><details>
+![Image](https://ibb.co/9czz7q9)  
 
-<summary>Tips for collapsed sections</summary>
 
-### You can add a header
 
-You can add text within a collapsed section. 
+</details>
 
-You can add an image or a code block, too.
+# Data Normalisation
 
-```ruby
-   puts "Hello World"
-```
+<details>
 
-</details><details>
+<summary>  </summary>
+
+
+
+</details>
+
+# Threat Detection
+
+<details>
 
 <summary>Tips for collapsed sections</summary>
 
