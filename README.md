@@ -359,8 +359,7 @@ pwd
 
 
 
-2. Copy the installation script after configutring the fleet ip adress same as Elasticsearch
-![Image](https://i.imgur.com/6mwtt4h.png)
+2. Copy the installation script after configuring the fleet ip address same as Elasticsearch.
 
 3. Get on the Cluster Host:
 
@@ -368,13 +367,13 @@ pwd
 docker exec -it kind-control-plane /bin/bash
 ```
 
-4. Paste the script to install elastic agent.
+4. Paste the script to install Elastic agent.
 
-5. wait untill the Fleet is connected to elastic agent and recognised. 
+![Image](https://i.imgur.com/oKUqXH0.png)
 
-image
+6. wait until the Fleet is connected to Elastic agent and recognised. 
 
-image
+![Image](https://i.imgur.com/6mwtt4h.png)
 
 </details>
 
@@ -405,7 +404,7 @@ To normalize the collected data, we need to ingest a pipeline `log-tetra-default
 
 <summary> Ingest Pipeline </summary>
 
-To add the pipeline, you need to go to `Dev Tools > Console` in Kibana and paste the content of `log-tetra-default.json`:
+To add the pipeline, you need to go to `Menu > Dev Tools > Console` in Kibana and paste the content of `log-tetra-default.json`:
 
 ![Image](https://i.imgur.com/SqwUGY8.png)
 
