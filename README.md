@@ -116,15 +116,16 @@ Before you install Docker Engine for the first time on a new host machine, you n
 Kubernetes is an open-source platform that orchestrates and scales containerized applications across multiple nodes. To use eBPF-based tools for security analysis of container runtime, we need to install and configure Kubernetes on our Linux system. In this case, we are using KIND, which is a tool that runs a local Kubernetes cluster using Docker containers as nodes. To install and configure Kubernetes with KIND, we need to follow these steps:
 1. Kind install command:
    ```shell
-   curl -Lo ./kind
-   https://kind.sigs.k8s.io/dl/v0.18.0/kind -linux - amd64
+   # For AMD64 / x86_64
+   [ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
    chmod +x ./kind
-   sudo mv ./kind/usr/local/bin/kind
+   sudo mv ./kind /usr/local/bin/kind
+   ```
 2. Install kubectl binary using these commands:
    ```shell
-   curl -LO " https://dl.k8s.io/release/$(curl -L -s
-   https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl "
-   sudo install -o root -g root -m 0755 kubectl/usr/local/bin/kubectl
+   curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+   sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+   kubectl version --client
 
 </details>
 
