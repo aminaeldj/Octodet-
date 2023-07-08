@@ -426,4 +426,6 @@ Add the pipeline in the Processor field on the Advanced Options section.
 
 # Threat Detection
 
+This is how we performed the container escape attack. With the threat detection rule we created, we were able to trigger an alert in Kibana and Email notification.
+
 https://github.com/aminaeldj/Octodet-/assets/121443476/030e4e78-003a-44db-b17f-cff7d66596e0
