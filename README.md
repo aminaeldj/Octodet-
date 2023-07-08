@@ -363,16 +363,22 @@ pwd
 </details>
 
 # Data Normalisation
-To normalize the collected data, we need to ingest a pipeline that contains many processors, each processor having a role in transforming, enriching, or filtering the data.
-| **Processor**        | **Value**           |
+To normalize the collected data, we need to ingest a pipeline `log-tetra-default` that contains many processors, each processor having a role in transforming, enriching, or filtering the data.
+| **Processor**        | **Description**           |
 | ------------- | ------------- |
 | Dissect      | Splits a field into multiple fields using a delimiter. |
 | JSON     | Parses a JSON string and adds it as a new object field. |
 | Rename | Renames an existing field to a new name. |
+| Split  | Splits a field into an array using a separator character. |
+| Set | Sets the value of a field to a predefined value. |
+| Script | Executes a script to modify documents before indexing. |
+| Remove | Removes one or more fields from the document. |
 <details>
 
-<summary>  </summary>
+<summary> Ingest Pipeline </summary>
 
+To add the pipeline, you need to go to `Dev Tools > Console` and paste the content of `log-tetra-default.json`:
+![Image](https://i.ibb.co/yhKG4gt/pippppp.png)
 
 
 </details>
