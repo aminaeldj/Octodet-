@@ -355,12 +355,40 @@ pwd
 
 <summary>Elastic-Agent and Fleet server configuration</summary>
 
+1. Get on Kibana: `menu > fleet > add fleet server` and follow the steps
+
+
+
+2. Copy the installation script after configutring the fleet ip adress same as Elasticsearch
 ![Image](https://i.imgur.com/6mwtt4h.png)
 
+3. Get on the Cluster Host:
 
+```shell
+docker exec -it kind-control-plane /bin/bash
+```
 
+4. Paste the script to install elastic agent.
+
+5. wait untill the Fleet is connected to elastic agent and recognised. 
+
+image
+
+image
 
 </details>
+
+
+<details>
+
+<summary>Configuring Custom Logs Integration</summary>
+
+Install custopm logs integration for the fleet server policies.
+
+image
+
+</details>
+
 
 # Data Normalisation
 To normalize the collected data, we need to ingest a pipeline `log-tetra-default` that contains many processors, each processor having a role in transforming, enriching, or filtering the data.
@@ -385,11 +413,12 @@ To add the pipeline, you need to go to `Dev Tools > Console` in Kibana and paste
 </details>
 
 <details>
-   <summary> Apply Pipeline in Custom Logs Integration </summary>
+<summary> Apply Pipeline in Custom Logs Integration </summary>
    
 Add the pipeline in the Processor field on the Advanced Options section.
 
 ![Image](https://i.imgur.com/IyVr9Xf.png)
+
 </details>
 
 # Threat Detection
@@ -408,21 +437,9 @@ You can add an image or a code block, too.
    puts "Hello World"
 ```
 
-</details><details>
+</details>
 
-<summary>Tips for collapsed sections</summary>
-
-### You can add a header
-
-You can add text within a collapsed section. 
-
-You can add an image or a code block, too.
-
-```ruby
-   puts "Hello World"
-```
-
-</details><details>
+<details>
 
 <summary>Tips for collapsed sections</summary>
 
