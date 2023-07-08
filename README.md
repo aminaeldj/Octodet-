@@ -385,6 +385,7 @@ docker exec -it kind-control-plane /bin/bash
 <summary>Configuring Custom Logs Integration</summary>
 
 Install custopm logs integration for the fleet server policies.
+and use the following path `/var/log/pods/kube-system_tetragon-*/export-stdout/*.log`
 
 image
 
