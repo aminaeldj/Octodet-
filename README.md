@@ -236,7 +236,7 @@ sudo snap install go --classic
 
 # Kubernetes GOAT Deployment
 
-[Kubernetes Gpat](https://github.com/madhuakula/kubernetes-goat). 
+[Kubernetes Goat](https://github.com/madhuakula/kubernetes-goat). 
 
 
 The Kubernetes Goat is designed to be an intentionally vulnerable cluster environment to learn and practice Kubernetes security
