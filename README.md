@@ -378,7 +378,7 @@ To normalize the collected data, we need to ingest a pipeline `log-tetra-default
 <summary> Ingest Pipeline </summary>
 
 To add the pipeline, you need to go to `Dev Tools > Console` in Kibana and paste the content of `log-tetra-default.json`:
-![Image](https://ibb.co/1sBhzR1)
+![Image](https://i.imgur.com/SqwUGY8.png)
 
 
 </details>
