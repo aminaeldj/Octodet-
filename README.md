@@ -355,7 +355,7 @@ pwd
 
 <summary>Elastic-Agent and Fleet server configuration</summary>
 
-![Image](https://i.ibb.co/Jm009zR/Screenshot-2023-07-07-133006.png)
+![Image](https://i.imgur.com/6mwtt4h.png)
 
 
 
