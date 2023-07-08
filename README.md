@@ -363,7 +363,12 @@ pwd
 </details>
 
 # Data Normalisation
-
+To normalize the collected data, we need to ingest a pipeline that contains many processors, each processor having a role in transforming, enriching, or filtering the data.
+| **Processor**        | **Value**           |
+| ------------- | ------------- |
+| Dissect      | Splits a field into multiple fields using a delimiter. |
+| JSON     | Parses a JSON string and adds it as a new object field. |
+| Rename | Renames an existing field to a new name. |
 <details>
 
 <summary>  </summary>
