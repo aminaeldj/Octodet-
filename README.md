@@ -426,15 +426,4 @@ Add the pipeline in the Processor field on the Advanced Options section.
 
 # Threat Detection
 
-
-
-
-
-
-
-
-
-
-
-
-
+https://github.com/aminaeldj/Octodet-/assets/121443476/030e4e78-003a-44db-b17f-cff7d66596e0
