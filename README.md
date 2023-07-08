@@ -361,6 +361,8 @@ pwd
 
 2. Copy the installation script after configuring the fleet ip address same as Elasticsearch.
 
+![Image](https://i.imgur.com/6mwtt4h.png)
+
 3. Get on the Cluster Host:
 
 ```shell
@@ -371,9 +373,9 @@ docker exec -it kind-control-plane /bin/bash
 
 ![Image](https://i.imgur.com/oKUqXH0.png)
 
-6. wait until the Fleet is connected to Elastic agent and recognised. 
+6. Wait until the Fleet is connected to Elastic agent and recognised.
 
-![Image](https://i.imgur.com/6mwtt4h.png)
+![Image](https://i.imgur.com/MN7w4A2.png)
 
 </details>
 
