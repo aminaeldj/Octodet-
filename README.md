@@ -385,8 +385,9 @@ To add the pipeline, you need to go to `Dev Tools > Console` in Kibana and paste
 
 <details>
    <summary> Apply Pipeline in Custom Logs Integration </summary>
+   
 Add the pipeline in the Processor field on the Advanced Options section
-![Image](https://i.imgur.com/DcHWU9O.png)
+![Image](https://i.imgur.com/IyVr9Xf.png)
 </details>
 
 # Threat Detection
