@@ -335,6 +335,10 @@ and Container Name:
 ```shell
 docker ps
 ```
+```shell
+#  If the container is not running, we need to start it before using the docker exec command. Use the docker start command followed by the container ID.
+docker start <container_id>
+```
 We access the cluster node and explore the Tetragon pod for the logs files.
 ```shell
 # this will let us access the cluster node
